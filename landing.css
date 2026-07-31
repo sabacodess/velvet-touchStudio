@@ -934,8 +934,8 @@ html,body{overflow-x:hidden;}
 .footer-right{justify-content:center;flex-wrap:wrap;}
 
 .carousel-wrapper{display:block;}
-.product-grid{display:none !important;}
-}
+/* .product-grid{display:none !important;}
+} */
 
 @media (max-width:480px){
 .hero-left h1{font-size:2.4rem;}
