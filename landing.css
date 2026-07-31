@@ -896,13 +896,19 @@ html,body{overflow-x:hidden;}
 .nav-logo{height:45px;}
 .social-icon{width:26px;height:26px;}
 
-.hero{flex-direction:column;text-align:center;padding:50px 20px;min-height:auto;}
+.hero{flex-direction:column;text-align:center;padding:50px 20px;min-height:auto;gap:35px}
 .hero-left,.hero-right{width:100%;}
 .hero-left h1{font-size:3rem;}
 .hero-left p{font-size:16px;max-width:100%;margin:0 auto 30px;}
-.hero-buttons{justify-content:center;flex-wrap:wrap;}
-.blob{width:320px;height:320px;}
+.hero-buttons{justify-content:center;flex-wrap:wrap;margin-top: 30px;}
+.blob{width:300px;height:300px;}
 .hero-right img{width:280px;}
+.hero-left{
+    order:1;
+}
+.hero-right{
+    order:2;
+}
 
 .why-us{padding:60px 20px;}
 .feature-grid{flex-direction:column;align-items:center;gap:35px;}
