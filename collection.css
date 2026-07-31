@@ -93,10 +93,10 @@
 .product-grid{
 
     display:grid;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:repeat(4,280px);
+    justify-content:center;
+    gap:30px;
 
-    gap:28px;
 
 }
 
