@@ -936,7 +936,13 @@ html,body{overflow-x:hidden;}
 .carousel-wrapper{display:block;}
 /* .product-grid{display:none !important;}
 } */
+.carousel-wrapper{
+    display:block;
+}
 
+.new-arrivals-grid{
+    display:none;
+}
 @media (max-width:480px){
 .hero-left h1{font-size:2.4rem;}
 .hero-left p{font-size:15px;}
