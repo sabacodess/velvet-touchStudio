@@ -888,6 +888,13 @@ color:white;
 #founder{
     scroll-margin-top:100px;
 }
+.carousel-wrapper{
+    display:none;
+}
+
+.new-arrivals-grid{
+    display:grid;
+}
 @media (max-width:768px){
 
 html,body{overflow-x:hidden;}
@@ -936,6 +943,7 @@ html,body{overflow-x:hidden;}
 .carousel-wrapper{display:block;}
 /* .product-grid{display:none !important;}
 } */
+
 .carousel-wrapper{
     display:block;
 }
