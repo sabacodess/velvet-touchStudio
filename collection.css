@@ -1,0 +1,301 @@
+/* ===========================
+      COLLECTION HERO
+=========================== */
+
+.collection-hero{
+    height:380px;
+    background-image:url("../Assets/Banners/flowers.jpg");
+    background-size:cover;
+    background-position:center;
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.collection-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.28);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    color:white;
+    padding:20px;
+}
+
+.back-link{
+    display:inline-block;
+    color:white;
+    text-decoration:none;
+    margin-bottom:18px;
+    font-size:.95rem;
+    opacity:.9;
+}
+
+.back-link:hover{
+    opacity:1;
+}
+
+#collectionTag{
+    display:block;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:.8rem;
+    margin-bottom:15px;
+}
+
+#collectionTitle{
+    font-size:4rem;
+    font-family:"Cormorant Garamond",serif;
+    margin-bottom:18px;
+}
+
+#collectionDescription{
+    max-width:600px;
+    margin:auto;
+    line-height:1.8;
+}
+
+
+
+/* ===========================
+      PRODUCTS
+=========================== */
+
+.collection-products{
+
+    padding:80px 6%;
+
+    background:#faf8f6;
+
+}
+
+.product-count{
+
+    margin-bottom:35px;
+
+    color:#777;
+
+    font-size:.95rem;
+
+}
+
+.product-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:28px;
+
+}
+
+
+
+/* ===========================
+      PRODUCT CARD
+=========================== */
+
+.product-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+
+    transition:.35s;
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 45px rgba(0,0,0,.12);
+
+}
+
+.product-card img{
+
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.product-card:hover img{
+
+    transform:scale(1.05);
+
+}
+
+.product-info{
+
+    padding:22px;
+
+}
+
+.product-info h3{
+
+    color:#333;
+
+    margin-bottom:10px;
+
+    font-size:1.1rem;
+
+}
+
+.price{
+
+    color:#8AA583;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+.card-btn{
+
+    display:inline-block;
+
+    padding:11px 22px;
+
+    border-radius:50px;
+
+    background:#8AA583;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.card-btn:hover{
+
+    background:#76926e;
+
+}
+
+
+
+/* ===========================
+      CUSTOM ORDER
+=========================== */
+
+.custom-order{
+
+    padding:90px 6%;
+
+    background:#f5f0eb;
+
+    text-align:center;
+
+}
+
+.custom-order h2{
+
+    font-size:2.4rem;
+
+    margin-bottom:18px;
+
+    color:#3a3a3a;
+
+    font-family:"Cormorant Garamond",serif;
+
+}
+
+.custom-order p{
+
+    max-width:600px;
+
+    margin:auto auto 30px;
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+.empty-state{
+    grid-column:1/-1;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.empty-state h2{
+    margin-bottom:10px;
+    color:#444;
+}
+
+.empty-state p{
+    color:#777;
+}
+
+
+
+/* ===========================
+      MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.collection-hero{
+
+height:300px;
+
+}
+
+#collectionTitle{
+
+font-size:2.6rem;
+
+}
+
+.collection-products{
+
+padding:60px 20px;
+
+}
+
+.product-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.product-card img{
+
+height:260px;
+
+}
+
+.custom-order{
+
+padding:70px 20px;
+
+}
+
+.custom-order h2{
+
+font-size:2rem;
+
+}
+
+}
