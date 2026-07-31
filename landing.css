@@ -579,188 +579,146 @@ transform:translateX(5px);
 /*=========================
       COLLECTIONS
 ==========================*/
+.collections{
 
-.collections {
-  padding: 80px 6%;
-  background: #faf8f6;
+padding:90px 6%;
+
+background:#faf8f6;
+
+overflow:hidden;
+
 }
 
-.collection-header {
-  text-align: center;
-  margin-bottom: 55px;
+.collection-header{
+
+text-align:center;
+
+margin-bottom:45px;
+
 }
 
-.section-tag {
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #8a5a63;
-  font-size: .8rem;
-  font-weight: 600;
-  margin-bottom: 12px;
+.collection-slider{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
 }
 
-.section-title {
-  font-size: 2.5rem;
-  color: #2f2f2f;
-  margin-bottom: 12px;
+.collection-track{
+
+display:flex;
+
+gap:25px;
+
+overflow-x:auto;
+
+scroll-behavior:smooth;
+
+scrollbar-width:none;
+
 }
 
-.section-subtitle {
-  color: #777;
-  max-width: 550px;
-  margin: auto;
-  line-height: 1.7;
+.collection-track::-webkit-scrollbar{
+
+display:none;
+
 }
 
+.collection-card{
 
-/*=========================
-      GRID
-==========================*/
+min-width:300px;
 
-.collection-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 30px;
-}
+background:white;
 
+border-radius:22px;
 
-/*=========================
-      CARD
-==========================*/
+overflow:hidden;
 
-.collection-card {
+box-shadow:0 12px 35px rgba(0,0,0,.06);
 
-  background: white;
+transition:.35s;
 
-  border-radius: 24px;
-
-  overflow: hidden;
-
-  transition: .35s;
-
-  box-shadow: 0 15px 35px rgba(0,0,0,.05);
+flex-shrink:0;
 
 }
 
 .collection-card:hover{
 
-  transform: translateY(-10px);
-
-  box-shadow:0 25px 45px rgba(0,0,0,.12);
-
-}
-
-
-/*=========================
-      IMAGE
-==========================*/
-
-.collection-card img{
-
-  width:100%;
-
-  height:240px;
-
-  object-fit:cover;
-
-  display:block;
-
-}
-
-
-/*=========================
-      CONTENT
-==========================*/
-
-.collection-content{
-
-  padding:25px;
-
-}
-
-.collection-content h3{
-
-  font-size:1.25rem;
-
-  color:#2f2f2f;
-
-  margin-bottom:10px;
-
-}
-
-.collection-content p{
-
-  color:#777;
-
-  line-height:1.6;
-
-  font-size:.92rem;
-
-  margin-bottom:22px;
-
-}
-
-
-/*=========================
-      BUTTON
-==========================*/
-
-.collection-content a{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:8px;
-
-  text-decoration:none;
-
-  color:#8a5a63;
-
-  font-weight:600;
-
-  transition:.3s;
-
-}
-
-.collection-content a:hover{
-
-  gap:14px;
-
-}
-
-
-/*=========================
-      MOBILE
-==========================*/
-
-@media(max-width:768px){
-
-.collections{
-
-padding:65px 20px;
-
-}
-
-.collection-grid{
-
-grid-template-columns:1fr;
+transform:translateY(-8px);
 
 }
 
 .collection-card img{
 
-height:220px;
+width:100%;
+
+height:250px;
+
+object-fit:cover;
 
 }
 
-.section-title{
+.collection-info{
 
-font-size:2rem;
+padding:24px;
+
+}
+
+.collection-info h3{
+
+font-size:1.2rem;
+
+margin-bottom:15px;
+
+color:#2f2f2f;
 
 }
 
+.collection-info a{
+
+text-decoration:none;
+
+font-weight:600;
+
+color:#8a5a63;
+
 }
+
+.collection-arrow{
+
+width:55px;
+
+height:55px;
+
+border:none;
+
+border-radius:50%;
+
+background:white;
+
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+cursor:pointer;
+
+font-size:1.4rem;
+
+transition:.3s;
+
+}
+
+.collection-arrow:hover{
+
+background:#8a5a63;
+
+color:white;
+
+}
+
+
+
 
 /* REFERENCE CTA */
 .reference-cta {
