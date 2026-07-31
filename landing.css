@@ -6,13 +6,40 @@
 }
 
 /* ANNOUNCEMENT BAR */
+/* Announcement Bar */
+
 .announcement-bar {
-  background: #8aa583;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  font-size: 0.88rem;
-  letter-spacing: 0.4px;
+  width: 100%;
+  overflow: hidden;
+  background: #2f2a27;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 0;
+}
+
+.announcement-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+
+.announcement-track span {
+  white-space: nowrap;
+  padding-right: 80px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* NAVBAR */
