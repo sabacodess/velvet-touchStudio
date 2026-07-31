@@ -44,100 +44,89 @@
 
 /* NAVBAR */
 /* ================= NAVBAR ================= */
+/* ================= NAVBAR ================= */
 
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+.navbar{
+    position: sticky;
+    top:0;
+    z-index:1000;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-  padding: 14px 80px;
+    padding:14px 80px;
 
-  background: rgba(252, 248, 245, 0.9);
-  backdrop-filter: blur(18px);
+    background:rgba(252,248,245,.92);
+    backdrop-filter:blur(15px);
 
-  border-bottom: 1px solid #ece7e2;
+    border-bottom:1px solid #ece7e2;
 }
 
-.nav-logo {
-  height: 58px;
-  display: block;
+.nav-logo{
+    height:58px;
+    display:block;
 }
 
-.nav-links {
-  display: flex;
-  gap: 50px;
+/* Links */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:50px;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #3b312e;
-  font-size: 15px;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
+.nav-links a{
+    text-decoration:none;
+    color:#3B312E;
+    font-size:15px;
+    font-weight:500;
+    position:relative;
+    transition:.3s;
 }
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
+.nav-links a::after{
+    content:"";
+    position:absolute;
 
-  width: 0;
-  height: 2px;
+    left:0;
+    bottom:-6px;
 
-  background: #8a5a63;
+    width:0;
+    height:2px;
 
-  transition: width 0.3s ease;
+    background:#8A5A63;
+
+    transition:.3s;
 }
 
-.nav-links a:hover {
-  color: #8a5a63;
+.nav-links a:hover{
+    color:#8A5A63;
 }
 
-.nav-links a:hover::after {
-  width: 100%;
+.nav-links a:hover::after{
+    width:100%;
 }
 
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+/* Right */
+
+.nav-right{
+    display:flex;
+    align-items:center;
 }
 
-.social-icon {
-  width: 22px;
-  height: 22px;
-  opacity: 0.75;
-  transition: all 0.3s ease;
+.social-icon{
+    width:24px;
+    height:24px;
+
+    opacity:.75;
+
+    transition:.3s;
 }
 
-.social-icon:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-.nav-btn {
-  text-decoration: none;
-  background: #8a5a63;
-  color: white;
-
-  padding: 11px 24px;
-  border-radius: 999px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  transition: all 0.3s ease;
-}
-
-.nav-btn:hover {
-  background: #734750;
-  transform: translateY(-2px);
+.social-icon:hover{
+    opacity:1;
+    transform:scale(1.12);
 }
 /* HERO */
 .hero {
@@ -641,12 +630,17 @@
 
 @media (max-width: 768px) {
   /* NAVBAR */
-  .navbar {
-    padding: 12px 20px;
-  }
-  .nav-logo {
-    height: 55px;
-  }
+  .navbar{
+        padding:14px 20px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .nav-logo{
+        height:48px;
+    }
 
   /* HERO */
   .hero {
