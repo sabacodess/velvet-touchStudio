@@ -357,225 +357,219 @@
 /* NEW ARRIVALS */
 /* ================= NEW ARRIVALS ================= */
 
+/*========================*/
+
 .new-arrivals{
 
-    background:#FDF6F0;
+width:min(1300px,92%);
 
-    padding:80px 8%;
+margin:90px auto;
 
-}
+background:#4F3138;
 
-.new-arrivals-header{
+border-radius:35px;
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-    margin-bottom:50px;
-
-    gap:40px;
+padding:45px;
 
 }
 
-.header-left{
+/*========================*/
 
-    max-width:520px;
+.arrival-header{
 
-}
+display:flex;
 
-.new-badge{
+justify-content:space-between;
 
-    display:inline-block;
+align-items:center;
 
-    padding:6px 16px;
+padding-bottom:25px;
 
-    border-radius:50px;
+margin-bottom:35px;
 
-    background:#E8F0E4;
-
-    color:#6D8D66;
-
-    font-size:.75rem;
-
-    letter-spacing:2px;
-
-    font-weight:600;
-
-    text-transform:uppercase;
-
-    margin-bottom:15px;
+border-bottom:1px solid rgba(255,255,255,.12);
 
 }
 
-.section-title{
+.arrival-header h2{
 
-    font-family:"Cormorant Garamond",serif;
+font-size:2.8rem;
 
-    font-size:3.2rem;
+font-family:"Cormorant Garamond",serif;
 
-    color:#2F2A27;
+color:white;
 
-    margin-bottom:12px;
-
-}
-
-.section-subtitle{
-
-    color:#777;
-
-    font-size:1rem;
-
-    line-height:1.8;
+margin-top:12px;
 
 }
 
-.view-all{
+.arrival-header p{
 
-    text-decoration:none;
+margin-top:10px;
 
-    color:#8A5A63;
+color:#D6C8CB;
 
-    font-weight:600;
+max-width:430px;
 
-    transition:.3s;
+line-height:1.7;
+
+}
+
+.arrival-heading-small{
+
+background:#65414A;
+
+padding:8px 18px;
+
+border-radius:999px;
+
+color:#F2C66E;
+
+font-size:.72rem;
+
+letter-spacing:2px;
+
+font-weight:600;
 
 }
 
-.view-all:hover{
+.arrival-header a{
 
-    transform:translateX(5px);
+color:white;
+
+text-decoration:none;
+
+font-weight:600;
 
 }
+
+/*========================*/
 
 .new-arrivals-grid{
 
-    display:grid;
+display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
-    gap:28px;
-
-}
-
-.new-card{
-
-    background:white;
-
-    border-radius:24px;
-
-    overflow:hidden;
-
-    transition:.35s;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.06);
+gap:26px;
 
 }
 
-.new-card:hover{
+/*========================*/
 
-    transform:translateY(-8px);
+.arrival-card{
 
-}
+background:#65414A;
 
-.new-card-img{
+border-radius:22px;
 
-    background:#F7F3EE;
+overflow:hidden;
 
-    padding:20px;
-
-    position:relative;
+transition:.35s;
 
 }
 
-.new-card-img img{
+.arrival-card:hover{
 
-    width:100%;
-
-    height:260px;
-
-    object-fit:contain;
-
-    transition:.35s;
+transform:translateY(-10px);
 
 }
 
-.new-card:hover img{
+.arrival-image{
 
-    transform:scale(1.05);
+padding:18px;
 
-}
-
-.new-tag{
-
-    position:absolute;
-
-    top:18px;
-
-    left:18px;
-
-    background:#8AA583;
-
-    color:white;
-
-    font-size:.75rem;
-
-    padding:5px 12px;
-
-    border-radius:50px;
+padding-bottom:0;
 
 }
 
-.product-info{
+.arrival-image img{
 
-    padding:20px;
+width:100%;
 
-}
+height:320px;
 
-.product-info h3{
+border-radius:18px;
 
-    font-size:1rem;
+object-fit:cover;
 
-    margin-bottom:8px;
-
-    color:#2F2A27;
+display:block;
 
 }
 
-.price{
+/*========================*/
 
-    color:#8AA583;
+.arrival-content{
 
-    font-size:1rem;
-
-    font-weight:600;
-
-    margin-bottom:18px;
+padding:20px;
 
 }
 
-.card-btn{
+.arrival-label{
 
-    display:inline-block;
+font-size:.72rem;
 
-    text-decoration:none;
+letter-spacing:2px;
 
-    background:#8A5A63;
+color:#F2C66E;
 
-    color:white;
-
-    padding:10px 22px;
-
-    border-radius:50px;
-
-    transition:.3s;
+text-transform:uppercase;
 
 }
 
-.card-btn:hover{
+.arrival-content h3{
 
-    background:#73464F;
+color:white;
+
+font-size:1.1rem;
+
+margin:10px 0 22px;
+
+font-weight:500;
+
+line-height:1.5;
+
+}
+
+.arrival-footer{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding-top:15px;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.arrival-price{
+
+color:#F2C66E;
+
+font-size:1.2rem;
+
+font-weight:600;
+
+}
+
+.arrival-btn{
+
+color:white;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.arrival-btn:hover{
+
+transform:translateX(5px);
 
 }
 

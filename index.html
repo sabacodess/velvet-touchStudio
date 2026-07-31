@@ -130,43 +130,55 @@
     <!-- NEW ARRIVALS -->
      <section class="new-arrivals">
 
-    <div class="new-arrivals-header">
+<div class="arrival-header">
 
-        <div class="header-left">
+<div>
 
-            <span class="new-badge">
-                LATEST COLLECTION
-            </span>
+<span class="arrival-heading-small">
+LATEST COLLECTION
+</span>
 
-            <h2 class="section-title">
-                Fresh Off The Hook
-            </h2>
+<h2>
+Fresh Off The Hook
+</h2>
 
-            <p class="section-subtitle">
-                Discover our newest handmade creations,
-                crocheted with love and care.
-            </p>
+<p>
+New handmade creations waiting to become someone's favourite.
+</p>
 
-        </div>
+</div>
 
-        <a href="#collection" class="view-all">
-            View All →
-        </a>
+<a href="#collection">
 
-    </div>
+View All →
 
-    <div class="carousel-wrapper">
-        <div class="carousel-track" id="newTrack"></div>
+</a>
 
-        <div class="carousel-dots" id="newDots"></div>
-    </div>
+</div>
 
-    <div
-        class="new-arrivals-grid"
-        id="new-arrivals-grid">
-    </div>
+<div
+class="new-arrivals-grid"
+id="new-arrivals-grid">
+
+</div>
+
+<div class="carousel-wrapper">
+
+<div class="carousel-track"
+id="newTrack">
+
+</div>
+
+<div
+class="carousel-dots"
+id="newDots">
+
+</div>
+
+</div>
 
 </section>
+     
 
     <!-- OUR COLLECTION -->
     <!-- OUR COLLECTION -->
@@ -418,19 +430,42 @@
         // New Arrivals - Desktop Grid
         const newArrivalsGridHTML = newArrivals
           .map(
-            (p) => `
-  <div class="new-card">
-    <div class="new-card-img">
-      <img src="${p.image}" alt="${p.name}" />
-      <span class="new-tag">New</span>
+            (p) =>`
+<div class="arrival-card">
+
+    <div class="arrival-image">
+        <img src="${p.image}" alt="${p.name}">
     </div>
-    <div class="product-info">
-      <h3>${p.name}</h3>
-      <p class="price">₹${p.price}</p>
-      <a href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*." class="card-btn" target="_blank">Order Now</a>
+
+    <div class="arrival-content">
+
+        <span class="arrival-label">
+            HANDMADE
+        </span>
+
+        <h3>${p.name}</h3>
+
+        <div class="arrival-footer">
+
+            <span class="arrival-price">
+                ₹${p.price}
+            </span>
+
+            <a href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*."
+               class="arrival-btn"
+               target="_blank">
+
+                Order →
+
+            </a>
+
+        </div>
+
     </div>
-  </div>
-`,
+
+</div>
+`
+  
           )
           .join("");
 
