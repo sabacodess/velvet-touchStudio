@@ -778,6 +778,7 @@ color:white;
     transition:.3s;
 }
 
+
 .founder-btn:hover{
     background:#76926e;
 }
@@ -872,6 +873,21 @@ color:white;
   }
 } */
 
+#home{
+    scroll-margin-top:100px;
+}
+
+#new-arrivals{
+    scroll-margin-top:100px;
+}
+
+#collections{
+    scroll-margin-top:100px;
+}
+
+#founder{
+    scroll-margin-top:100px;
+}
 @media (max-width: 768px) {
   /* NAVBAR */
   .navbar{

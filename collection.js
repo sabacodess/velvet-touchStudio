@@ -14,55 +14,55 @@ const collectionInfo = {
     phonecharms:{
         title:"Phone Charms",
         desc:"Cute handmade crochet charms to brighten your phone.",
-        banner:"Assets/Banners/phonecharms.jpg"
+        banner:"Assets/banner.png"
     },
 
     keychain:{
         title:"Keychains",
         desc:"Tiny crochet companions made with love.",
-        banner:"Assets/Banners/keychain.jpg"
+         banner:"Assets/banner.png"
     },
 
     amigurumi:{
         title:"Amigurumi",
         desc:"Adorable handmade crochet friends.",
-        banner:"Assets/Banners/amigurumi.jpg"
+        banner:"Assets/banner.png"
     },
 
     bracelet:{
         title:"Bracelets",
         desc:"Elegant crochet bracelets for every occasion.",
-        banner:"Assets/Banners/bracelet.jpg"
+        banner:"Assets/banner.png"
     },
 
     hair:{
         title:"Hair Accessories",
         desc:"Soft crochet accessories for every hairstyle.",
-        banner:"Assets/Banners/hair.jpg"
+        banner:"Assets/banner.png"
     },
 
     bag:{
         title:"Bags",
         desc:"Handcrafted crochet bags you'll love carrying.",
-        banner:"Assets/Banners/bag.jpg"
+         banner:"Assets/banner.png"
     },
 
     flower:{
         title:"Flowers",
         desc:"Forever blooming handmade crochet flowers.",
-        banner:"Assets/Banners/flower.jpg"
+         banner:"Assets/banner.png"
     },
 
     combo:{
         title:"Gift Combos",
         desc:"Beautiful handmade gift sets.",
-        banner:"Assets/Banners/combo.jpg"
+         banner:"Assets/banner.png"
     },
 
     rakhi:{
         title:"Rakhi Collection",
         desc:"Celebrate with handmade crochet rakhis.",
-        banner:"Assets/Banners/rakhi.jpg"
+         banner:"Assets/banner.png"
     }
 
 };
