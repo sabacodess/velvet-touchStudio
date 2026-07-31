@@ -129,58 +129,128 @@
     transform:scale(1.12);
 }
 /* HERO */
+/* ================= HERO ================= */
+
 .hero {
-  position: relative;
-  min-height: 480px;
-  background-image: url("Assets/wool1.jpg");
-  background-size: cover;
-  background-position: center 30%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.52);
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  padding: 0 20px;
-}
-.heading {
-  font-size: 4rem;
-  line-height: 1.1;
-  margin-bottom: 14px;
-  font-family: "Dancing Script", cursive;
-  color: #3a3a3a;
-}
-.sub-heading {
-  font-size: 1rem;
-  margin-bottom: 26px;
-  color: #555;
-  font-weight: 300;
-}
-.order-btn {
-  display: inline-block;
-  text-decoration: none;
-  padding: 12px 28px;
-  border-radius: 50px;
-  background: #8aa583;
-  color: white;
-  font-size: 0.95rem;
-  font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: background 0.2s;
-}
-.order-btn:hover {
-  background: #76926e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 80px 90px;
+    min-height: 85vh;
+
+    background: #FCF8F5;
+    overflow: hidden;
 }
 
+.hero-left {
+    width: 48%;
+}
+
+.hero-tag {
+    color: #8A5A63;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.hero-left h1 {
+    font-size: 4.5rem;
+    line-height: 1;
+    color: #2F2A27;
+    font-family: "Cormorant Garamond", serif;
+    margin-bottom: 24px;
+}
+
+.hero-left p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #666;
+    max-width: 500px;
+    margin-bottom: 35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+}
+
+.hero-buttons a{
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:999px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.hero-buttons a:first-child{
+    background:#8A5A63;
+    color:white;
+}
+
+.hero-buttons a:last-child{
+    border:1px solid #8A5A63;
+    color:#8A5A63;
+}
+
+.hero-buttons a:hover{
+    transform:translateY(-4px);
+}
+
+/* RIGHT */
+
+.hero-right{
+    width:45%;
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Blob */
+
+.blob{
+    position:absolute;
+
+    width:480px;
+    height:480px;
+
+    background:#F3E4DB;
+
+    border-radius:55% 45% 60% 40%;
+
+    z-index:1;
+}
+
+/* Image */
+
+.hero-right img{
+    width:430px;
+    position:relative;
+    z-index:2;
+
+    animation:float 5s ease-in-out infinite;
+}
+
+/* Floating Animation */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
 /* FEATURES */
 .features {
   background: #8aa583;
