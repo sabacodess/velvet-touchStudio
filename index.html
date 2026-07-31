@@ -376,226 +376,109 @@ id="newDots">
       Made with <img src="Assets/knitting.png" alt="knittling" /> & love by
       Velvet Touch Studio
     </div>
-
     <script>
-      const carouselState = {};
-
-      function setupCarousel(trackId, dotsId) {
-        const track = document.getElementById(trackId);
-        const dotsContainer = document.getElementById(dotsId);
-        if (!track || !dotsContainer) return;
-
-        const state = { current: 0 };
-        carouselState[trackId] = state;
-
-        function rebuild() {
-          const cards = track.querySelectorAll(".carousel-card:not(.hidden)");
-          state.cards = cards;
-          state.current = 0;
-          track.style.transform = "translateX(0%)";
-
-          dotsContainer.innerHTML = "";
-          cards.forEach((_, i) => {
-            const dot = document.createElement("div");
-            dot.classList.add("dot");
-            if (i === 0) dot.classList.add("active");
-            dot.onclick = () => goTo(i);
-            dotsContainer.appendChild(dot);
-          });
-        }
-
-        function goTo(index) {
-          state.current = index;
-          track.style.transform = `translateX(-${index * 100}%)`;
-          dotsContainer.querySelectorAll(".dot").forEach((d, i) => {
-            d.classList.toggle("active", i === index);
-          });
-        }
-
-        state.rebuild = rebuild;
-
-        let startX = 0;
-        track.addEventListener(
-          "touchstart",
-          (e) => (startX = e.touches[0].clientX),
-        );
-        track.addEventListener("touchend", (e) => {
-          if (window.innerWidth > 768) return;
-          const diff = startX - e.changedTouches[0].clientX;
-          const cards = state.cards;
-          if (diff > 50 && state.current < cards.length - 1)
-            goTo(state.current + 1);
-          if (diff < -50 && state.current > 0) goTo(state.current - 1);
-        });
-
-        rebuild();
-      }
-
-      function filterProducts(category, event) {
-        // Tabs active state
-        document
-          .querySelectorAll(".tab-btn")
-          .forEach((t) => t.classList.remove("active"));
-        event.target.classList.add("active");
-
-        // Desktop grid
-        document
-          .querySelectorAll("#productGrid .product-card")
-          .forEach((card) => {
-            const match =
-              category === "all" || card.dataset.category === category;
-            card.classList.toggle("hidden", !match);
-          });
-
-        // Mobile carousel
-        const track = document.getElementById("productTrack");
-        if (track) {
-          track.querySelectorAll(".carousel-card").forEach((card) => {
-            const match =
-              category === "all" || card.dataset.category === category;
-            card.classList.toggle("hidden", !match);
-          });
-          if (carouselState["productTrack"]) {
-            carouselState["productTrack"].rebuild();
-          }
-        }
-      }
-
       window.addEventListener("load", () => {
-        loadsproduct();
-        // setupCarousel("newTrack", "newDots");
-        // setupCarousel("productTrack", "productDots");
-      });
+  loadsproduct();
+});
 
-      const newTrack = document.getElementById("newTrack");
-      const newArrivalsGrid = document.getElementById("new-arrivals-grid");
-      const productTrack = document.getElementById("productTrack");
-      const productGrid = document.getElementById("productGrid");
+const newTrack = document.getElementById("newTrack");
+const newArrivalsGrid = document.getElementById("new-arrivals-grid");
 
-      async function loadsproduct() {
-        const SHEET_URL =
-          "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaDF8jn6Kl76pzQYbrFFRERaGYz3kfjaHtJrNWMc9aYSRRdrO00SuDPOirvGVL3f5p3TjMWspi54NQ/pub?output=csv";
+async function loadsproduct() {
+  const SHEET_URL =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaDF8jn6Kl76pzQYbrFFRERaGYz3kfjaHtJrNWMc9aYSRRdrO00SuDPOirvGVL3f5p3TjMWspi54NQ/pub?output=csv";
 
-        const response = await fetch(SHEET_URL);
-        const csvText = await response.text();
-        // console.log(csvText);
+  const response = await fetch(SHEET_URL);
+  const csvText = await response.text();
 
-        const rows = csvText.trim().split("\n");
-        const headers = rows[0].split(",").map((h) => h.trim());
+  const rows = csvText.trim().split("\n");
+  const headers = rows[0].split(",").map((h) => h.trim());
 
-        const products = rows.slice(1).map((row) => {
-          const values = row.split(",").map((v) => v.trim());
-          const obj = {};
-          headers.forEach((header, i) => {
-            obj[header] = values[i];
-          });
-          return obj;
-        });
+  const products = rows.slice(1).map((row) => {
+    const values = row.split(",").map((v) => v.trim());
+    const obj = {};
 
-        console.log(products); // test
-        const newArrivals = products.filter((p) => p.isnew === "yes");
+    headers.forEach((header, i) => {
+      obj[header] = values[i];
+    });
 
-        const newTrackHTML = newArrivals
-          .map(
-            (p) => `
-  <div class="carousel-card">
-    <img src="${p.image}" alt="${p.name}" />
-    <span class="new-tag">New</span>
-    <div class="product-info">
-      <h3>${p.name}</h3>
-      <p class="price">₹${p.price}</p>
-      <a href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*." class="card-btn" target="_blank">Order Now</a>
-    </div>
-  </div>
-`,
-          )
-          .join("");
+    return obj;
+  });
 
-        newTrack.innerHTML = newTrackHTML;
-        // New Arrivals - Desktop Grid
-        const newArrivalsGridHTML = newArrivals
-          .map(
-            (p) =>`
-<div class="arrival-card">
+  const newArrivals = products.filter((p) => p.isnew === "yes");
 
-    <div class="arrival-image">
-        <img src="${p.image}" alt="${p.name}">
-    </div>
+  /* ---------- Mobile Carousel ---------- */
 
-    <div class="arrival-content">
+  const newTrackHTML = newArrivals
+    .map(
+      (p) => `
+      <div class="carousel-card">
+        <img src="${p.image}" alt="${p.name}" />
+        <span class="new-tag">New</span>
 
-        <span class="arrival-label">
-            HANDMADE
-        </span>
+        <div class="product-info">
+          <h3>${p.name}</h3>
+          <p class="price">₹${p.price}</p>
 
-        <h3>${p.name}</h3>
+          <a
+            href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*."
+            class="card-btn"
+            target="_blank"
+          >
+            Order Now
+          </a>
+        </div>
+      </div>
+    `
+    )
+    .join("");
 
-        <div class="arrival-footer">
+  newTrack.innerHTML = newTrackHTML;
+
+  /* ---------- Desktop Grid ---------- */
+
+  const newArrivalsGridHTML = newArrivals
+    .map(
+      (p) => `
+      <div class="arrival-card">
+
+        <div class="arrival-image">
+          <img src="${p.image}" alt="${p.name}">
+        </div>
+
+        <div class="arrival-content">
+
+          <span class="arrival-label">NEW</span>
+
+          <h3>${p.name}</h3>
+
+          <div class="arrival-footer">
 
             <span class="arrival-price">
-                ₹${p.price}
+              ₹${p.price}
             </span>
 
-            <a href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*."
-               class="arrival-btn"
-               target="_blank">
-
-                Order →
-
+            <a
+              href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*."
+              class="arrival-btn"
+              target="_blank"
+            >
+              Order →
             </a>
+
+          </div>
 
         </div>
 
-    </div>
+      </div>
+    `
+    )
+    .join("");
 
-</div>
-`
-  
-          )
-          .join("");
+  newArrivalsGrid.innerHTML = newArrivalsGridHTML;
 
-        newArrivalsGrid.innerHTML = newArrivalsGridHTML;
-
-        // Collection - Mobile Carousel
-        const productTrackHTML = products
-          .map(
-            (p) => `
-  <div class="carousel-card" data-category="${p.category}">
-    <img src="${p.image}" alt="${p.name}" />
-    <div class="product-info">
-      <h3>${p.name}</h3>
-      <p class="price">₹${p.price}</p>
-      <a href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*." class="card-btn" target="_blank">Order Now</a>
-    </div>
-  </div>
-`,
-          )
-          .join("");
-
-        productTrack.innerHTML = productTrackHTML;
-
-        // Collection - Desktop Grid
-        const productGridHTML = products
-          .map(
-            (p) => `
-  <div class="product-card" data-category="${p.category}">
-    <img src="${p.image}" alt="${p.name}" />
-    <div class="product-info">
-      <h3>${p.name}</h3>
-      <p class="price">₹${p.price}</p>
-      <a href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*." class="card-btn" target="_blank">Order Now</a>
-    </div>
-  </div>
-`,
-          )
-          .join("");
-
-        productGrid.innerHTML = productGridHTML;
-
-        // Re-run carousel setup after content is injected
-        setupCarousel("newTrack", "newDots");
-        setupCarousel("productTrack", "productDots");
-      }
+  setupCarousel("newTrack", "newDots");
+}
     </script>
   </body>
 </html>
