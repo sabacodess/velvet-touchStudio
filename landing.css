@@ -888,161 +888,52 @@ color:white;
 #founder{
     scroll-margin-top:100px;
 }
-@media (max-width: 768px) {
-  /* NAVBAR */
-  .navbar{
-        padding:14px 20px;
-    }
+@media (max-width:768px){
 
-    .nav-links{
-        display:none;
-    }
+html,body{overflow-x:hidden;}
+.navbar{padding:14px 18px;}
+.nav-links{display:none;}
+.nav-logo{height:45px;}
+.social-icon{width:26px;height:26px;}
 
-    .nav-logo{
-        height:48px;
-    }
+.hero{flex-direction:column;text-align:center;padding:50px 20px;min-height:auto;}
+.hero-left,.hero-right{width:100%;}
+.hero-left h1{font-size:3rem;}
+.hero-left p{font-size:16px;max-width:100%;margin:0 auto 30px;}
+.hero-buttons{justify-content:center;flex-wrap:wrap;}
+.blob{width:320px;height:320px;}
+.hero-right img{width:280px;}
 
-  /* HERO */
-  .hero {
-    min-height: 350px;
-  }
-  .heading {
-    font-size: 2.5rem;
-  }
-  .sub-heading {
-    font-size: 0.9rem;
-  }
+.why-us{padding:60px 20px;}
+.feature-grid{flex-direction:column;align-items:center;gap:35px;}
+.feature-card{width:100%;max-width:320px;}
 
-  /* FEATURES */
-  .features {
-    padding: 40px 20px;
-    gap: 30px;
-    flex-direction: column;
-    align-items: center;
-  }
+.new-arrivals{width:92%;padding:30px 20px;margin:60px auto;}
+.arrival-header{flex-direction:column;align-items:flex-start;gap:18px;}
+.arrival-header h2{font-size:2rem;}
+.new-arrivals-grid{grid-template-columns:1fr;}
+.arrival-image img{height:250px;}
 
-  /* NEW ARRIVALS */
-  .new-arrivals {
-    padding: 40px 0;
-  }
-  .new-arrivals-grid {
-    display: none;
-  }
+.collections{padding:60px 20px;}
+.collection-arrow{display:none;}
+.collection-card{min-width:250px;}
+.collection-card img{height:220px;}
 
-  /* COLLECTION */
-  .collection {
-    padding: 40px 0;
-  }
-  .product-grid {
-    display: none !important;
-  }
+.founder{display:flex;flex-direction:column;gap:40px;margin:70px auto;}
+.founder-image img{height:380px;}
+.founder-content{text-align:center;}
+.founder-content p{max-width:100%;}
 
-  /* CATEGORY TABS - single scrollable row, no cutoff */
-  .category-tabs {
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-x: auto;
-    gap: 8px;
-    padding: 0 20px 10px;
-    margin: 20px 0 30px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-  .category-tabs::-webkit-scrollbar {
-    display: none;
-  }
-  .tab-btn {
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-  .tab-btn:last-child {
-    margin-right: 20px;
-  }
+.footer{flex-direction:column;text-align:center;padding:40px 20px;}
+.footer-right{justify-content:center;flex-wrap:wrap;}
 
-  /* CAROUSEL - clean single card, no peeking */
-  .carousel-wrapper {
-    display: block;
-    padding: 0 20px;
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .carousel-track {
-    display: flex;
-    width: 100%;
-    transition: transform 0.35s ease;
-  }
-  .carousel-card {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    flex-shrink: 0;
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    position: relative;
-    box-sizing: border-box;
-  }
-  .carousel-card.hidden {
-    display: none;
-  }
-  .carousel-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    background: #f9f5f0;
-  }
-  .carousel-card .new-tag {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-  }
-  .carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 16px;
-  }
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ccc;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .dot.active {
-    background: #8aa583;
-    width: 20px;
-    border-radius: 10px;
-  }
-
-  /* FOUNDER */
-  .founder {
-    flex-direction: column;
-  }
-  .founder-text {
-    padding: 40px 30px;
-  }
-  .founder-image {
-    min-height: 250px;
-  }
-
-  /* FOOTER */
-  .footer {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px 20px;
-  }
+.carousel-wrapper{display:block;}
+.product-grid{display:none !important;}
 }
 
-@media (max-width: 480px) {
-  .heading {
-    font-size: 2rem;
-  }
-  .tab-btn {
-    padding: 7px 16px;
-    font-size: 0.8rem;
-  }
+@media (max-width:480px){
+.hero-left h1{font-size:2.4rem;}
+.hero-left p{font-size:15px;}
+.hero-right img{width:240px;}
 }
+  
