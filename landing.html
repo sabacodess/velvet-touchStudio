@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velvet Touch Studio</title>
+    <link rel="stylesheet" href="landing.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/png" href="./Assets/favicon_v.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+      Custom orders open — share your reference &amp; we'll make it for you!
+      <!-- <div class="announcement-track">
+        <span
+          >Custom orders open — share your reference &amp; we'll make it for
+          you!</span
+        >
+        <span
+          >Custom orders open — share your reference &amp; we'll make it for
+          you!</span
+        >
+      </div> -->
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <img
+        src="Assets/logo-velvet.png"
+        alt="Velvet Touch Studio"
+        class="nav-logo"
+      />
+      <div class="nav-icons">
+        <a
+          href="https://www.instagram.com/velvet_touch_studio07/"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg"
+            alt="Instagram"
+            class="social-icon"
+          />
+        </a>
+        <a
+          href="https://wa.me/919152368605?text=Hi! I found your page and I'm interested in placing an order."
+          target="_blank"
+          aria-label="WhatsApp"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg"
+            alt="WhatsApp"
+            class="social-icon"
+          />
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="heading">Handmade with love.</h1>
+        <p class="sub-heading">Custom crochet creations, made just for you.</p>
+        <a
+          href="https://wa.me/919152368605?text=Hi! I'm interested in a custom crochet order."
+          class="order-btn"
+          target="_blank"
+        >
+          Order on WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="feature-item">
+        <img src="Assets/knitting.png" alt="knittling" />
+        <h3>Custom Creations</h3>
+        <p>
+          Share your reference and we'll bring your vision to life, stitch by
+          stitch.
+        </p>
+      </div>
+      <div class="feature-item">
+        <img src="Assets/glove.png" alt="glove" />
+        <h3>Handmade with Care</h3>
+        <p>
+          Every piece is crafted by hand with love, attention to detail, and
+          quality yarn.
+        </p>
+      </div>
+      <div class="feature-item">
+        <img src="Assets/knitting1.png" alt="knitting" />
+        <h3>Perfect as a Gift</h3>
+        <p>
+          Unique, thoughtful, and one-of-a-kind — the perfect gift for someone
+          special.
+        </p>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <!-- NEW ARRIVALS -->
+    <section class="new-arrivals">
+      <div class="new-arrivals-header">
+        <span class="new-badge"> Just Dropped</span>
+        <h2 class="section-title">New Arrivals</h2>
+        <p class="section-subtitle">
+          Fresh additions to our collection — don't miss these!
+        </p>
+      </div>
+
+      <!-- Mobile carousel -->
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="newTrack"></div>
+
+        <div class="carousel-dots" id="newDots"></div>
+      </div>
+
+      <!-- Desktop grid -->
+      <div class="new-arrivals-grid" id="new-arrivals-grid"></div>
+    </section>
+
+    <!-- OUR COLLECTION -->
+    <!-- OUR COLLECTION -->
+    <section class="collection">
+      <h2 class="section-title">Our Collection</h2>
+      <p class="section-subtitle">Handcrafted with love, made just for you.</p>
+
+      <div class="category-tabs">
+        <button class="tab-btn active" onclick="filterProducts('all', event)">
+          All
+        </button>
+        <button class="tab-btn" onclick="filterProducts('tasbeeh', event)">
+          Tasbeeh
+        </button>
+        <button class="tab-btn" onclick="filterProducts('keychain', event)">
+          Keychains
+        </button>
+        <button class="tab-btn" onclick="filterProducts('hair', event)">
+          Hair Accessories
+        </button>
+        <button class="tab-btn" onclick="filterProducts('bag', event)">
+          Bag
+        </button>
+      </div>
+
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="productTrack"></div>
+        <div class="carousel-dots" id="productDots"></div>
+      </div>
+
+      <!-- Desktop grid -->
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- REFERENCE CTA -->
+    <section class="reference-cta">
+      <h2>Got a reference in mind?</h2>
+      <p>
+        Send us a photo, screenshot, or describe what you want — we'll make it
+        happen, custom and with love.
+      </p>
+      <a
+        href="https://wa.me/919152368605?text=Hi! I have a reference I'd like to share for a custom crochet order."
+        class="order-btn"
+        target="_blank"
+      >
+        Share your reference on WhatsApp
+      </a>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="founder">
+      <div class="founder-text">
+        <h2>From our Founder</h2>
+        <p>
+          Hi, I'm Gazala Khan — the hands and heart behind Velvet Touch Studio.
+          What started as a passion for crochet turned into a small business
+          built on creativity, care, and handmade love. Every piece you see here
+          is crafted with attention to detail, and made just for you. Thank you
+          for being a part of this journey.
+          <img src="Assets/knitting.png" alt="knitting" />
+        </p>
+      </div>
+      <div class="founder-image">
+        <!-- Replace src with actual founder photo -->
+        <!-- <div class="founder-placeholder">
+          <span>📸</span>
+          Add your photo here<br />
+          <small style="color: #bbb">(replace Assets/founder.jpg)</small>
+        </div> -->
+        <!-- Uncomment below when photo is ready: -->
+        <img src="Assets/founder.jpeg" alt="Gazala Khan - Founder" />
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-left">
+        <img src="Assets/logo-velvet.png" alt="Velvet Touch Studio" />
+        <p>© 2026 Velvet Touch Studio. All rights reserved.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-social">
+          <a
+            href="https://www.instagram.com/velvet_touch_studio07/"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg"
+              alt="Instagram"
+              class="footer-social-icon"
+            />
+          </a>
+          <a
+            href="https://wa.me/919152368605"
+            target="_blank"
+            aria-label="WhatsApp"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg"
+              alt="WhatsApp"
+              class="footer-social-icon"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <div class="footer-bottom">
+      Made with <img src="Assets/knitting.png" alt="knittling" /> & love by
+      Velvet Touch Studio
+    </div>
+
+    <script>
+      const carouselState = {};
+
+      function setupCarousel(trackId, dotsId) {
+        const track = document.getElementById(trackId);
+        const dotsContainer = document.getElementById(dotsId);
+        if (!track || !dotsContainer) return;
+
+        const state = { current: 0 };
+        carouselState[trackId] = state;
+
+        function rebuild() {
+          const cards = track.querySelectorAll(".carousel-card:not(.hidden)");
+          state.cards = cards;
+          state.current = 0;
+          track.style.transform = "translateX(0%)";
+
+          dotsContainer.innerHTML = "";
+          cards.forEach((_, i) => {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            if (i === 0) dot.classList.add("active");
+            dot.onclick = () => goTo(i);
+            dotsContainer.appendChild(dot);
+          });
+        }
+
+        function goTo(index) {
+          state.current = index;
+          track.style.transform = `translateX(-${index * 100}%)`;
+          dotsContainer.querySelectorAll(".dot").forEach((d, i) => {
+            d.classList.toggle("active", i === index);
+          });
+        }
+
+        state.rebuild = rebuild;
+
+        let startX = 0;
+        track.addEventListener(
+          "touchstart",
+          (e) => (startX = e.touches[0].clientX),
+        );
+        track.addEventListener("touchend", (e) => {
+          if (window.innerWidth > 768) return;
+          const diff = startX - e.changedTouches[0].clientX;
+          const cards = state.cards;
+          if (diff > 50 && state.current < cards.length - 1)
+            goTo(state.current + 1);
+          if (diff < -50 && state.current > 0) goTo(state.current - 1);
+        });
+
+        rebuild();
+      }
+
+      function filterProducts(category, event) {
+        // Tabs active state
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((t) => t.classList.remove("active"));
+        event.target.classList.add("active");
+
+        // Desktop grid
+        document
+          .querySelectorAll("#productGrid .product-card")
+          .forEach((card) => {
+            const match =
+              category === "all" || card.dataset.category === category;
+            card.classList.toggle("hidden", !match);
+          });
+
+        // Mobile carousel
+        const track = document.getElementById("productTrack");
+        if (track) {
+          track.querySelectorAll(".carousel-card").forEach((card) => {
+            const match =
+              category === "all" || card.dataset.category === category;
+            card.classList.toggle("hidden", !match);
+          });
+          if (carouselState["productTrack"]) {
+            carouselState["productTrack"].rebuild();
+          }
+        }
+      }
+
+      window.addEventListener("load", () => {
+        loadsproduct();
+        // setupCarousel("newTrack", "newDots");
+        // setupCarousel("productTrack", "productDots");
+      });
+
+      const newTrack = document.getElementById("newTrack");
+      const newArrivalsGrid = document.getElementById("new-arrivals-grid");
+      const productTrack = document.getElementById("productTrack");
+      const productGrid = document.getElementById("productGrid");
+
+      async function loadsproduct() {
+        const SHEET_URL =
+          "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaDF8jn6Kl76pzQYbrFFRERaGYz3kfjaHtJrNWMc9aYSRRdrO00SuDPOirvGVL3f5p3TjMWspi54NQ/pub?output=csv";
+
+        const response = await fetch(SHEET_URL);
+        const csvText = await response.text();
+        // console.log(csvText);
+
+        const rows = csvText.trim().split("\n");
+        const headers = rows[0].split(",").map((h) => h.trim());
+
+        const products = rows.slice(1).map((row) => {
+          const values = row.split(",").map((v) => v.trim());
+          const obj = {};
+          headers.forEach((header, i) => {
+            obj[header] = values[i];
+          });
+          return obj;
+        });
+
+        console.log(products); // test
+        const newArrivals = products.filter((p) => p.isnew === "yes");
+
+        const newTrackHTML = newArrivals
+          .map(
+            (p) => `
+  <div class="carousel-card">
+    <img src="${p.image}" alt="${p.name}" />
+    <span class="new-tag">New</span>
+    <div class="product-info">
+      <h3>${p.name}</h3>
+      <p class="price">₹${p.price}</p>
+      <a href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*." class="card-btn" target="_blank">Order Now</a>
+    </div>
+  </div>
+`,
+          )
+          .join("");
+
+        newTrack.innerHTML = newTrackHTML;
+        // New Arrivals - Desktop Grid
+        const newArrivalsGridHTML = newArrivals
+          .map(
+            (p) => `
+  <div class="new-card">
+    <div class="new-card-img">
+      <img src="${p.image}" alt="${p.name}" />
+      <span class="new-tag">New</span>
+    </div>
+    <div class="product-info">
+      <h3>${p.name}</h3>
+      <p class="price">₹${p.price}</p>
+      <a href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*." class="card-btn" target="_blank">Order Now</a>
+    </div>
+  </div>
+`,
+          )
+          .join("");
+
+        newArrivalsGrid.innerHTML = newArrivalsGridHTML;
+
+        // Collection - Mobile Carousel
+        const productTrackHTML = products
+          .map(
+            (p) => `
+  <div class="carousel-card" data-category="${p.category}">
+    <img src="${p.image}" alt="${p.name}" />
+    <div class="product-info">
+      <h3>${p.name}</h3>
+      <p class="price">₹${p.price}</p>
+      <a href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*." class="card-btn" target="_blank">Order Now</a>
+    </div>
+  </div>
+`,
+          )
+          .join("");
+
+        productTrack.innerHTML = productTrackHTML;
+
+        // Collection - Desktop Grid
+        const productGridHTML = products
+          .map(
+            (p) => `
+  <div class="product-card" data-category="${p.category}">
+    <img src="${p.image}" alt="${p.name}" />
+    <div class="product-info">
+      <h3>${p.name}</h3>
+      <p class="price">₹${p.price}</p>
+      <a href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*." class="card-btn" target="_blank">Order Now</a>
+    </div>
+  </div>
+`,
+          )
+          .join("");
+
+        productGrid.innerHTML = productGridHTML;
+
+        // Re-run carousel setup after content is injected
+        setupCarousel("newTrack", "newDots");
+        setupCarousel("productTrack", "productDots");
+      }
+    </script>
+  </body>
+</html>
