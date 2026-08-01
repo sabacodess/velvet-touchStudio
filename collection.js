@@ -156,30 +156,29 @@ async function loadProducts(){
     =========================== */
     initSwiper();
 }
+let productSwiperInstance = null;
 
 function initSwiper() {
-    new Swiper('.myProductSwiper', {
-        slidesPerView: 1.15,     // Screen par 1 main card + side pe chhota peek
-        centeredSlides: true,    // Main card ko horizontal center rakhta hai
-        loop: false,             // First item se overflow cut hone se bachata hai
-        spaceBetween: 16,        // Cards ke beech ka gap
-        grabCursor: true,
-
-        navigation: {
-            nextEl: '#nextBtn',
-        },
-
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-                centeredSlides: false,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 3,
-                centeredSlides: false,
-                spaceBetween: 24,
-            }
+    // Only initialize Swiper on Mobile screens (width <= 768px)
+    if (window.innerWidth <= 768) {
+        if (!productSwiperInstance) {
+            productSwiperInstance = new Swiper('.myProductSwiper', {
+                slidesPerView: 1.15,
+                centeredSlides: true,
+                spaceBetween: 16,
+                grabCursor: true,
+                observer: true,
+                observeParents: true,
+                navigation: {
+                    nextEl: '#nextBtn',
+                },
+            });
         }
-    });
+    } else {
+        // Destroy Swiper if screen resized to desktop
+        if (productSwiperInstance) {
+            productSwiperInstance.destroy(true, true);
+            productSwiperInstance = null;
+        }
+    }
 }
