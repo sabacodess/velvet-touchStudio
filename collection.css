@@ -288,6 +288,9 @@
 /* ==========================================
    COLLECTION PAGE - MOBILE FIXES & SWIPER
 ========================================== */
+/* ==========================================
+   COLLECTION PAGE - MOBILE FIXES & SWIPER
+========================================== */
 
 @media (max-width: 768px) {
   .collection-hero {
@@ -299,45 +302,46 @@
   }
 
   .collection-products {
-    padding: 40px 16px;
+    padding: 30px 0; /* Horizontal padding removed so swiper flows edge to edge */
   }
 
-  /* Transform product grid into a horizontal swipe slider */
+  /* Swiper Container Fix */
   .product-grid {
+    display: block; /* Removed CSS Grid/Flex overrides */
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .myProductSwiper {
+    width: 100%;
+    padding: 10px 0 20px 0 !important;
+  }
+
+  /* Swiper Slide Fix */
+  .swiper-slide {
+    height: auto;
     display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 20px; /* Space for scrollbar/shadows */
+    justify-content: center;
   }
 
-  /* Hide scrollbar for clean UI */
-  .product-grid::-webkit-scrollbar {
-    display: none;
-  }
-
+  /* Product Card Styling for Swiper */
   .product-card {
-    min-width: 82vw; /* Takes up most of screen width with hint of next card */
-    max-width: 82vw;
-    flex-shrink: 0;
-    scroll-snap-align: center;
+    width: 100%;
     border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    background: #ffffff;
   }
 
-  /* FIX IMAGE CUT-OFF ISSUE */
   .product-card img {
     width: 100%;
     height: 280px;
-    object-fit: contain; /* Prevents cropping tall products */
-    background: #fbf9f7; /* Matching light background for padding */
-    padding: 10px;
+    object-fit: cover; /* Cover lagao clean modern photo look ke liye */
     display: block;
   }
 
   .product-info {
     padding: 18px;
+    text-align: center;
   }
 
   .custom-order {
@@ -348,3 +352,8 @@
     font-size: 2rem;
   }
 }
+
+
+
+  
+ 

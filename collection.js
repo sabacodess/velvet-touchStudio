@@ -159,19 +159,25 @@ async function loadProducts(){
 
 function initSwiper() {
     new Swiper('.myProductSwiper', {
-        slidesPerView: 1.25, // Mobile pe next item peek karega
-        spaceBetween: 16,
+        slidesPerView: 1.15,     // Screen par 1 main card + side pe chhota peek
+        centeredSlides: true,    // Main card ko horizontal center rakhta hai
+        loop: false,             // First item se overflow cut hone se bachata hai
+        spaceBetween: 16,        // Cards ke beech ka gap
         grabCursor: true,
+
         navigation: {
             nextEl: '#nextBtn',
         },
+
         breakpoints: {
             640: {
-                slidesPerView: 2.2,
+                slidesPerView: 2,
+                centeredSlides: false,
                 spaceBetween: 20,
             },
             1024: {
-                slidesPerView: 3.5,
+                slidesPerView: 3,
+                centeredSlides: false,
                 spaceBetween: 24,
             }
         }
