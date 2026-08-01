@@ -209,9 +209,12 @@
     align-items:center;
 }
 /* Custom Wool Ball Cursor (32x32 Embedded) */
-body, a, button, .card-btn, .order-btn, .product-card {
+body{
   cursor: url("Assets/geminisvg1.svg") 16 16, pointer !important;
 }
+ a, button, .card-btn, .order-btn, .product-card {
+  cursor: pointer;
+ }
 /* Blob */
 
 .blob{
@@ -225,7 +228,7 @@ body, a, button, .card-btn, .order-btn, .product-card {
     border-radius:55% 45% 60% 40%;
 
     z-index:1;
-    cursor:pointer ;
+  
 }
 
 /* Image */
@@ -234,6 +237,7 @@ body, a, button, .card-btn, .order-btn, .product-card {
     width:430px;
     position:relative;
     z-index:2;
+    cursor: pointer;
 
     animation:float 5s ease-in-out infinite;
 }
