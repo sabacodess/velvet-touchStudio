@@ -950,8 +950,8 @@ html,body{overflow-x:hidden;}
 .footer-right{justify-content:center;flex-wrap:wrap;}
 
 .carousel-wrapper{display:block;}
-/* .product-grid{display:none !important;}
-} */
+/* /* .product-grid{display:none !important;} */
+} 
 
 .carousel-wrapper{
     display:block;
@@ -965,4 +965,5 @@ html,body{overflow-x:hidden;}
 .hero-left p{font-size:15px;}
 .hero-right img{width:240px;}
 }
+
   
