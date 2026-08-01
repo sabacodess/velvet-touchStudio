@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Outer Sage Green Wool Ball -->
+  <circle cx="16" cy="16" r="12" fill="#8AA583" />
+  <circle cx="16" cy="16" r="12" stroke="#6e8767" stroke-width="1.5" fill="none" />
+  
+  <!-- Yarn Threads Lines -->
+  <path d="M 8,16 C 12,8 20,8 24,16 C 20,24 12,24 8,16 Z" stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.9" />
+  <path d="M 16,8 C 8,12 8,20 16,24 C 24,20 24,12 16,8 Z" stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.9" />
+  
+  <!-- Tiny Needle Accent -->
+  <line x1="5" y1="5" x2="13" y2="13" stroke="#e0e0e0" stroke-width="2" stroke-linecap="round" />
+  <circle cx="5" cy="5" r="1" fill="#8AA583" />
+</svg>
