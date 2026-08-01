@@ -98,6 +98,8 @@
     gap:30px;
 
 
+
+
 }
 
 
@@ -291,7 +293,6 @@
 /* ==========================================
    COLLECTION PAGE - MOBILE FIXES & SWIPER
 ========================================== */
-
 @media (max-width: 768px) {
   .collection-hero {
     height: 260px;
@@ -302,12 +303,12 @@
   }
 
   .collection-products {
-    padding: 30px 0; /* Horizontal padding removed so swiper flows edge to edge */
+    padding: 40px 0;
   }
 
-  /* Swiper Container Fix */
+  /* Reset grid ONLY on mobile */
   .product-grid {
-    display: block; /* Removed CSS Grid/Flex overrides */
+    display: block !important;
     width: 100%;
     overflow: hidden;
   }
@@ -317,14 +318,12 @@
     padding: 10px 0 20px 0 !important;
   }
 
-  /* Swiper Slide Fix */
-  .swiper-slide {
+  .myProductSwiper .swiper-slide {
     height: auto;
     display: flex;
     justify-content: center;
   }
 
-  /* Product Card Styling for Swiper */
   .product-card {
     width: 100%;
     border-radius: 20px;
@@ -335,7 +334,7 @@
   .product-card img {
     width: 100%;
     height: 280px;
-    object-fit: cover; /* Cover lagao clean modern photo look ke liye */
+    object-fit: cover;
     display: block;
   }
 
