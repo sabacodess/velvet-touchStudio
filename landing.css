@@ -930,7 +930,7 @@ html,body{overflow-x:hidden;}
 .collections{padding:60px 20px;}
 .collection-arrow{display:none;}
 .collection-card{min-width:250px;}
-.collection-card img{height:220px;}
+.collection-card img{height:50px;}
 
 .founder{display:flex;flex-direction:column;gap:40px;margin:70px auto;}
 .founder-image img{height:380px;}
