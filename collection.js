@@ -69,7 +69,7 @@ if (hero && collectionInfo[category]) {
 }
 
 /* ===========================
-      GOOGLE SHEET DATA
+      GOOGLE SHEET
 =========================== */
 
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaDF8jn6Kl76pzQYbrFFRERaGYz3kfjaHtJrNWMc9aYSRRdrO00SuDPOirvGVL3f5p3TjMWspi54NQ/pub?output=csv";
@@ -151,41 +151,28 @@ async function loadProducts(){
     `;
 
     /* ===========================
-          INITIALIZE LAYOUT
+          INITIALIZE SWIPER
     =========================== */
-    handleSwiperLayout();
+    initProductSwiper();
 }
 
-/* ===========================
-      RESPONSIVE SWIPER TOGGLE
-=========================== */
-
-let productSwiperInstance = null;
-
-function handleSwiperLayout() {
-    if (window.innerWidth <= 768) {
-        // MOBILE: Enable Swiper Slider
-        if (!productSwiperInstance) {
-            productSwiperInstance = new Swiper('.myProductSwiper', {
-                slidesPerView: 1.15,
-                centeredSlides: true,
-                spaceBetween: 16,
-                grabCursor: true,
-                observer: true,
-                observeParents: true,
-                navigation: {
-                    nextEl: '#nextBtn',
-                },
-            });
+function initProductSwiper() {
+    new Swiper('.myProductSwiper', {
+        slidesPerView: 1.18,
+        centeredSlides: true,
+        spaceBetween: 16,
+        grabCursor: true,
+        observer: true,
+        observeParents: true,
+        navigation: {
+            nextEl: '#nextBtn',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2.2,
+                centeredSlides: false,
+                spaceBetween: 20
+            }
         }
-    } else {
-        // DESKTOP: Destroy Swiper cleanly so CSS Grid takes over
-        if (productSwiperInstance) {
-            productSwiperInstance.destroy(true, true);
-            productSwiperInstance = null;
-        }
-    }
+    });
 }
-
-// Window resize handler
-window.addEventListener('resize', handleSwiperLayout);
