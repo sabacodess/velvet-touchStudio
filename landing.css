@@ -934,10 +934,16 @@ html,body{overflow-x:hidden;}
 .arrival-image{
   height:240px;
   overflow:hidden;
+  padding: 0;
+  background: red !important;
+}
+.arrival-content{
+    padding:20px;
 }
 .arrival-image img{
   width:100%;
   height:100%;
+  border-radius: 0;
   object-fit:cover;
   display:block;
 }
