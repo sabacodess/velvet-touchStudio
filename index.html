@@ -434,107 +434,170 @@
       Velvet Touch Studio
     </div>
     <script>
-      window.addEventListener("load", () => {
-  loadsproduct();
-});
+      const SHEET_URL =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vTaDF8jn6Kl76pzQYbrFFRERaGYz3kfjaHtJrNWMc9aYSRRdrO00SuDPOirvGVL3f5p3TjMWspi54NQ/pub?output=csv";
 
-const newTrack = document.getElementById("newTrack");
-const newArrivalsGrid = document.getElementById("new-arrivals-grid");
+const grid = document.getElementById("arrivalGrid");
+const track = document.getElementById("arrivalTrack");
+const dots = document.getElementById("arrivalDots");
 
-async function loadsproduct() {
-  const SHEET_URL =
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaDF8jn6Kl76pzQYbrFFRERaGYz3kfjaHtJrNWMc9aYSRRdrO00SuDPOirvGVL3f5p3TjMWspi54NQ/pub?output=csv";
+let currentSlide = 0;
 
-  const response = await fetch(SHEET_URL);
-  const csvText = await response.text();
+window.addEventListener("DOMContentLoaded", loadProducts);
 
-  const rows = csvText.trim().split("\n");
-  const headers = rows[0].split(",").map((h) => h.trim());
+async function loadProducts(){
 
-  const products = rows.slice(1).map((row) => {
-    const values = row.split(",").map((v) => v.trim());
-    const obj = {};
+    const response = await fetch(SHEET_URL);
+    const csv = await response.text();
 
-    headers.forEach((header, i) => {
-      obj[header] = values[i];
+    const rows = csv.trim().split("\n");
+    const headers = rows[0].split(",").map(h=>h.trim());
+
+    const products = rows.slice(1).map(row=>{
+
+        const values = row.split(",").map(v=>v.trim());
+
+        const obj = {};
+
+        headers.forEach((header,i)=>{
+
+            obj[header]=values[i];
+
+        });
+
+        return obj;
+
     });
 
-    return obj;
-  });
+    const arrivals = products.filter(
+        p=>p.isnew.toLowerCase()=="yes"
+    );
 
-  const newArrivals = products.filter((p) => p.isnew === "yes");
+    renderDesktop(arrivals);
+    renderMobile(arrivals);
 
-  /* ---------- Mobile Carousel ---------- */
+}
+function createCard(product){
 
-  const newTrackHTML = newArrivals
-    .map(
-      (p) => `
-      <div class="carousel-card">
-        <img src="${p.image}" alt="${p.name}" />
-        <span class="new-tag">New</span>
+return `
 
-        <div class="product-info">
-          <h3>${p.name}</h3>
-          <p class="price">₹${p.price}</p>
+<div class="arrival-item">
 
-          <a
-            href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*."
-            class="card-btn"
-            target="_blank"
-          >
-            Order Now
-          </a>
-        </div>
-      </div>
-    `
-    )
-    .join("");
+<img src="${product.image}" alt="${product.name}">
 
-  newTrack.innerHTML = newTrackHTML;
+<div class="arrival-info">
 
-  /* ---------- Desktop Grid ---------- */
+<span>NEW</span>
 
-  const newArrivalsGridHTML = newArrivals
-    .map(
-      (p) => `
-      <div class="arrival-card">
+<h3>${product.name}</h3>
 
-        <div class="arrival-image">
-          <img src="${p.image}" alt="${p.name}">
-        </div>
+<div class="arrival-bottom">
 
-        <div class="arrival-content">
+<p>₹${product.price}</p>
 
-          <span class="arrival-label">NEW</span>
+<a
+href="https://wa.me/919152368605?text=Hi! I'm interested in *${product.name}*."
+target="_blank">
 
-          <h3>${p.name}</h3>
+Order →
 
-          <div class="arrival-footer">
+</a>
 
-            <span class="arrival-price">
-              ₹${p.price}
-            </span>
+</div>
 
-            <a
-              href="https://wa.me/919152368605?text=Hi! I'm interested in the *${p.name}*."
-              class="arrival-btn"
-              target="_blank"
-            >
-              Order →
-            </a>
+</div>
 
-          </div>
+</div>
 
-        </div>
+`;
 
-      </div>
-    `
-    )
-    .join("");
+}
 
-  newArrivalsGrid.innerHTML = newArrivalsGridHTML;
+function renderDesktop(products){
 
-  setupCarousel("newTrack", "newDots");
+grid.innerHTML = products
+.map(createCard)
+.join("");
+
+}
+
+function renderMobile(products){
+
+track.innerHTML = products
+.map(createCard)
+.join("");
+
+track.style.transform="translateX(0)";
+
+dots.innerHTML="";
+
+products.forEach((_,i)=>{
+
+const dot=document.createElement("span");
+
+if(i===0)
+dot.classList.add("active");
+
+dots.appendChild(dot);
+
+});
+
+}
+const prevBtn=document.querySelector(".prev-btn");
+const nextBtn=document.querySelector(".next-btn");
+
+nextBtn.addEventListener("click",()=>{
+
+const cards=document.querySelectorAll(".slider-track .arrival-item");
+
+if(cards.length===0) return;
+
+currentSlide++;
+
+if(currentSlide>=cards.length){
+
+currentSlide=0;
+
+}
+
+updateSlider();
+
+});
+
+prevBtn.addEventListener("click",()=>{
+
+const cards=document.querySelectorAll(".slider-track .arrival-item");
+
+if(cards.length===0) return;
+
+currentSlide--;
+
+if(currentSlide<0){
+
+currentSlide=cards.length-1;
+
+}
+
+updateSlider();
+
+});
+
+function updateSlider(){
+
+track.style.transform=
+`translateX(-${currentSlide*100}%)`;
+
+document
+.querySelectorAll(".slider-dots span")
+.forEach((dot,index)=>{
+
+dot.classList.toggle(
+"active",
+index===currentSlide
+);
+
+});
+
 }
 const track = document.querySelector(".collection-track");
 
