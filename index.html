@@ -434,196 +434,151 @@
       Velvet Touch Studio
     </div>
     <script>
-      const SHEET_URL =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vTaDF8jn6Kl76pzQYbrFFRERaGYz3kfjaHtJrNWMc9aYSRRdrO00SuDPOirvGVL3f5p3TjMWspi54NQ/pub?output=csv";
+  const SHEET_URL =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaDF8jn6Kl76pzQYbrFFRERaGYz3kfjaHtJrNWMc9aYSRRdrO00SuDPOirvGVL3f5p3TjMWspi54NQ/pub?output=csv";
 
-const grid = document.getElementById("arrivalGrid");
-const track = document.getElementById("arrivalTrack");
-const dots = document.getElementById("arrivalDots");
+  const grid = document.getElementById("arrivalGrid");
+  const track = document.getElementById("arrivalTrack");
+  const dots = document.getElementById("arrivalDots");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
 
-let currentSlide = 0;
+  let currentSlide = 0;
 
-window.addEventListener("DOMContentLoaded", loadProducts);
+  window.addEventListener("DOMContentLoaded", loadProducts);
 
-async function loadProducts(){
+  async function loadProducts() {
+    try {
+      const response = await fetch(SHEET_URL);
+      const csv = await response.text();
 
-    const response = await fetch(SHEET_URL);
-    const csv = await response.text();
+      const rows = csv.trim().split("\n");
+      const headers = rows[0].split(",").map((h) => h.trim());
 
-    const rows = csv.trim().split("\n");
-    const headers = rows[0].split(",").map(h=>h.trim());
-
-    const products = rows.slice(1).map(row=>{
-
-        const values = row.split(",").map(v=>v.trim());
-
+      const products = rows.slice(1).map((row) => {
+        const values = row.split(",").map((v) => v.trim());
         const obj = {};
-
-        headers.forEach((header,i)=>{
-
-            obj[header]=values[i];
-
+        headers.forEach((header, i) => {
+          obj[header] = values[i];
         });
-
         return obj;
+      });
 
+      const arrivals = products.filter(
+        (p) => p.isnew && p.isnew.toLowerCase() === "yes"
+      );
+
+      renderDesktop(arrivals);
+      renderMobile(arrivals);
+    } catch (error) {
+      console.error("Error loading products:", error);
+    }
+  }
+
+  function createCard(product) {
+    return `
+      <div class="arrival-item">
+        <img src="${product.image}" alt="${product.name}">
+        <div class="arrival-info">
+          <span>NEW</span>
+          <h3>${product.name}</h3>
+          <div class="arrival-bottom">
+            <p>₹${product.price}</p>
+            <a href="https://wa.me/919152368605?text=Hi! I'm interested in *${product.name}*." target="_blank">
+              Order →
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderDesktop(products) {
+    if (!grid) return;
+    grid.innerHTML = products.map(createCard).join("");
+  }
+
+  function renderMobile(products) {
+    if (!track || products.length === 0) return;
+
+    track.innerHTML = products.map(createCard).join("");
+    currentSlide = 0;
+    track.style.transform = "translateX(0%)";
+
+    if (dots) {
+      dots.innerHTML = "";
+      products.forEach((_, i) => {
+        const dot = document.createElement("span");
+        if (i === 0) dot.classList.add("active");
+        dots.appendChild(dot);
+      });
+    }
+  }
+
+  // Mobile Slider Event Listeners
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      const cards = document.querySelectorAll(".slider-track .arrival-item");
+      if (cards.length === 0) return;
+
+      currentSlide++;
+      if (currentSlide >= cards.length) {
+        currentSlide = 0;
+      }
+      updateSlider();
     });
+  }
 
-    const arrivals = products.filter(
-        p=>p.isnew.toLowerCase()=="yes"
-    );
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      const cards = document.querySelectorAll(".slider-track .arrival-item");
+      if (cards.length === 0) return;
 
-    renderDesktop(arrivals);
-    renderMobile(arrivals);
+      currentSlide--;
+      if (currentSlide < 0) {
+        currentSlide = cards.length - 1;
+      }
+      updateSlider();
+    });
+  }
 
-}
-function createCard(product){
+  function updateSlider() {
+    if (!track) return;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-return `
+    document.querySelectorAll(".slider-dots span").forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentSlide);
+    });
+  }
 
-<div class="arrival-item">
+  // Collections Section Navigation
+  const collectiontrack = document.querySelector(".collection-track");
+  const collectionNext = document.querySelector(".collection-arrow.next");
+  const collectionPrev = document.querySelector(".collection-arrow.prev");
 
-<img src="${product.image}" alt="${product.name}">
+  if (collectionNext && collectiontrack) {
+    collectionNext.onclick = () => {
+      collectiontrack.scrollBy({ left: 330, behavior: "smooth" });
+    };
+  }
 
-<div class="arrival-info">
+  if (collectionPrev && collectiontrack) {
+    collectionPrev.onclick = () => {
+      collectiontrack.scrollBy({ left: -330, behavior: "smooth" });
+    };
+  }
+</script>
+     
 
-<span>NEW</span>
 
-<h3>${product.name}</h3>
 
-<div class="arrival-bottom">
 
-<p>₹${product.price}</p>
 
-<a
-href="https://wa.me/919152368605?text=Hi! I'm interested in *${product.name}*."
-target="_blank">
 
-Order →
 
-</a>
 
-</div>
 
-</div>
 
-</div>
 
-`;
-
-}
-
-function renderDesktop(products){
-
-grid.innerHTML = products
-.map(createCard)
-.join("");
-
-}
-
-function renderMobile(products){
-
-track.innerHTML = products
-.map(createCard)
-.join("");
-
-track.style.transform="translateX(0)";
-
-dots.innerHTML="";
-
-products.forEach((_,i)=>{
-
-const dot=document.createElement("span");
-
-if(i===0)
-dot.classList.add("active");
-
-dots.appendChild(dot);
-
-});
-
-}
-const prevBtn=document.querySelector(".prev-btn");
-const nextBtn=document.querySelector(".next-btn");
-
-nextBtn.addEventListener("click",()=>{
-
-const cards=document.querySelectorAll(".slider-track .arrival-item");
-
-if(cards.length===0) return;
-
-currentSlide++;
-
-if(currentSlide>=cards.length){
-
-currentSlide=0;
-
-}
-
-updateSlider();
-
-});
-
-prevBtn.addEventListener("click",()=>{
-
-const cards=document.querySelectorAll(".slider-track .arrival-item");
-
-if(cards.length===0) return;
-
-currentSlide--;
-
-if(currentSlide<0){
-
-currentSlide=cards.length-1;
-
-}
-
-updateSlider();
-
-});
-
-function updateSlider(){
-
-track.style.transform=
-`translateX(-${currentSlide*100}%)`;
-
-document
-.querySelectorAll(".slider-dots span")
-.forEach((dot,index)=>{
-
-dot.classList.toggle(
-"active",
-index===currentSlide
-);
-
-});
-
-}
-const collectiontrack = document.querySelector(".collection-track");
-
-document.querySelector(".next").onclick = () => {
-
-collectiontrack.scrollBy({
-
-left:330,
-
-behavior:"smooth"
-
-});
-
-};
-
-document.querySelector(".prev").onclick = () => {
-
-collectiontrack.scrollBy({
-
-left:-330,
-
-behavior:"smooth"
-
-});
-
-};
-    </script>
   </body>
 </html>
