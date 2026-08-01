@@ -925,7 +925,7 @@ html,body{overflow-x:hidden;}
 .arrival-header{flex-direction:column;align-items:flex-start;gap:18px;}
 .arrival-header h2{font-size:2rem;}
 .new-arrivals-grid{grid-template-columns:1fr;}
-.arrival-image img{height:220px;}
+.arrival-image img{height:180px;}
 
 .collections{padding:60px 20px;}
 .collection-arrow{display:none;}
