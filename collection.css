@@ -285,52 +285,66 @@
 
 
 
-/* ===========================
-      MOBILE
-=========================== */
+/* ==========================================
+   COLLECTION PAGE - MOBILE FIXES & SWIPER
+========================================== */
 
-@media(max-width:768px){
+@media (max-width: 768px) {
+  .collection-hero {
+    height: 260px;
+  }
 
-.collection-hero{
+  #collectionTitle {
+    font-size: 2.5rem;
+  }
 
-height:300px;
+  .collection-products {
+    padding: 40px 16px;
+  }
 
-}
+  /* Transform product grid into a horizontal swipe slider */
+  .product-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px; /* Space for scrollbar/shadows */
+  }
 
-#collectionTitle{
+  /* Hide scrollbar for clean UI */
+  .product-grid::-webkit-scrollbar {
+    display: none;
+  }
 
-font-size:2.6rem;
+  .product-card {
+    min-width: 82vw; /* Takes up most of screen width with hint of next card */
+    max-width: 82vw;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    border-radius: 20px;
+  }
 
-}
+  /* FIX IMAGE CUT-OFF ISSUE */
+  .product-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain; /* Prevents cropping tall products */
+    background: #fbf9f7; /* Matching light background for padding */
+    padding: 10px;
+    display: block;
+  }
 
-.collection-products{
+  .product-info {
+    padding: 18px;
+  }
 
-padding:60px 20px;
+  .custom-order {
+    padding: 60px 20px;
+  }
 
-}
-
-.product-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.product-card img{
-
-height:260px;
-
-}
-
-.custom-order{
-
-padding:70px 20px;
-
-}
-
-.custom-order h2{
-
-font-size:2rem;
-
-}
-
+  .custom-order h2 {
+    font-size: 2rem;
+  }
 }
