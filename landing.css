@@ -925,12 +925,21 @@ html,body{overflow-x:hidden;}
 .arrival-header{flex-direction:column;align-items:flex-start;gap:18px;}
 .arrival-header h2{font-size:2rem;}
 .new-arrivals-grid{grid-template-columns:1fr;}
-.arrival-image img{height:180px;}
+.arrival-image{
+  height:220px;
+  overflow:hidden;
+}
+.arrival-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
 
 .collections{padding:60px 20px;}
 .collection-arrow{display:none;}
 .collection-card{min-width:250px;}
-.collection-card img{height:50px;}
+.collection-card img{height:220px;}
 
 .founder{display:flex;flex-direction:column;gap:40px;margin:70px auto;}
 .founder-image img{height:380px;}
