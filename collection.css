@@ -4,7 +4,7 @@
 
 /* Custom Wool Ball Cursor (32x32 Embedded) */
 body, a, button, .card-btn, .order-btn, .product-card {
-  cursor: url("Assets/gemini-svg.svg") 16 16, pointer !important;
+  cursor: url("Assets/geminisvg1.svg") 16 16, pointer !important;
 }
 .collection-hero {
   height: 300px;

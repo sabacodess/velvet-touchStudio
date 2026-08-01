@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Left Knitting Needle -->
+  <line x1="3" y1="29" x2="25" y2="7" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="26.5" cy="5.5" r="1.8" fill="#1c1c1c"/>
+
+  <!-- Right Knitting Needle -->
+  <line x1="29" y1="29" x2="7" y2="7" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="5.5" cy="5.5" r="1.8" fill="#1c1c1c"/>
+
+  <!-- Main Outer Yarn Circle (Filled White for Contrast over dark elements) -->
+  <circle cx="16" cy="18" r="9" fill="#ffffff" stroke="#1c1c1c" stroke-width="2"/>
+
+  <!-- Inner Yarn Texture Lines (Bold Line-Art Style) -->
+  <!-- Top Right Diagonal Threads -->
+  <path d="M 11,12 C 15,10 19,12 23,16" stroke="#1c1c1c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 9.5,15 C 13.5,13 18,15 22,19" stroke="#1c1c1c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  
+  <!-- Center Crossing Band -->
+  <path d="M 8,20 C 13,24 19,23 24,18" stroke="#1c1c1c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 10,23 C 14,26 18,25 22,21" stroke="#1c1c1c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  
+  <!-- Bottom Hanging Loose Thread Curve -->
+  <path d="M 11,26 C 14,29 20,29 23,26" stroke="#1c1c1c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+</svg>
