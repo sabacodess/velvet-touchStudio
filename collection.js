@@ -69,7 +69,7 @@ if (hero && collectionInfo[category]) {
 }
 
 /* ===========================
-      GOOGLE SHEET
+      GOOGLE SHEET DATA
 =========================== */
 
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaDF8jn6Kl76pzQYbrFFRERaGYz3kfjaHtJrNWMc9aYSRRdrO00SuDPOirvGVL3f5p3TjMWspi54NQ/pub?output=csv";
@@ -128,7 +128,6 @@ async function loadProducts(){
           PRODUCT CARDS (SWIPER WRAPPER)
     =========================== */
 
-    // Wraps elements in swiper structure
     productGrid.innerHTML = `
         <div class="swiper myProductSwiper">
             <div class="swiper-wrapper">
@@ -152,15 +151,20 @@ async function loadProducts(){
     `;
 
     /* ===========================
-          INITIALIZE SWIPER
+          INITIALIZE LAYOUT
     =========================== */
-    initSwiper();
+    handleSwiperLayout();
 }
+
+/* ===========================
+      RESPONSIVE SWIPER TOGGLE
+=========================== */
+
 let productSwiperInstance = null;
 
-function initSwiper() {
-    // Only initialize Swiper on Mobile screens (width <= 768px)
+function handleSwiperLayout() {
     if (window.innerWidth <= 768) {
+        // MOBILE: Enable Swiper Slider
         if (!productSwiperInstance) {
             productSwiperInstance = new Swiper('.myProductSwiper', {
                 slidesPerView: 1.15,
@@ -175,10 +179,13 @@ function initSwiper() {
             });
         }
     } else {
-        // Destroy Swiper if screen resized to desktop
+        // DESKTOP: Destroy Swiper cleanly so CSS Grid takes over
         if (productSwiperInstance) {
             productSwiperInstance.destroy(true, true);
             productSwiperInstance = null;
         }
     }
 }
+
+// Window resize handler
+window.addEventListener('resize', handleSwiperLayout);
